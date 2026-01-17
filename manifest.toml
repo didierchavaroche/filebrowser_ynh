@@ -36,6 +36,14 @@ ram.runtime = "50M"
     type = "path"
     default = "/filebrowser"
 
+    [install.locale]
+    ask.en = "Choose the language?"
+    ask.fr = "Choississez la langue?"
+    type = "select"
+    default = "en"
+    choices.en = "English"
+    choices.fr = "Français"
+
     [install.init_main_permission]
     type = "group"
     default = "visitors"
