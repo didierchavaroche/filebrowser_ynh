@@ -52,7 +52,7 @@ ynh_exec_and_print_stderr_only_if_error exportfs -a
 ynh_exec_and_print_stderr_only_if_error systemctl restart nfs-kernel-server
 
 #Adding an ssh tunnel to the destination folder
-ynh_exec_and_print_stderr_only_if_error sshpass -p "$mot_de_passe" ssh-copy-id $utilisateur@$machine_distante
+ynh_exec_and_print_stderr_only_if_error sshpass -p "$mot_de_passe" ssh-copy-id $utilisateur@$machine_distante -o StrictHostKeyChecking=no
 
 #=================================================
 # START SYSTEMD SERVICE
