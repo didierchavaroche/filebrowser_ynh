@@ -44,6 +44,17 @@ pushd "$install_dir"
 popd
 
 #=================================================
+# ADD A NFS SHARE
+#=================================================
+#Adding the datadir directory as an NFS share
+cat "$data_dir 127.0.0.1(rw,sync,no_subtree_check)" >> /etc/exports
+exportfs -a
+systemctl restart nfs-kernel-server
+
+#Adding an ssh tunnel to the destination folder
+sshpass -p "$mot_de_passe" ssh-copy-id $utilisateur@$machine_distante
+
+#=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."

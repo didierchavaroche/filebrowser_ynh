@@ -54,7 +54,24 @@ ram.runtime = "50M"
     choices.en = "English"
     choices.fr = "Français"
 
+    [install.machine_distante]
+    ask.en = "Remote IP address:"
+    ask.fr = "Adresse IP distante:"
+    type = "string"
+
+    [install.utilisateur]
+    ask.en = "Remote user:"
+    ask.fr = "Utilisateur distant:"
+    type = "string"
+
+    [install.mot_de_passe]
+    ask.en = "Access password:"
+    ask.fr = "Mot de passe:"
+    type = "password"
+    
 [resources]
+    [resources.apt]
+    packages = ["nfs-kernel-server", "sshpass"]
 
     [resources.sources]
 
