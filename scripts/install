@@ -41,6 +41,7 @@ ynh_script_progression "Adding $app's admin user..."
 pushd "$install_dir"
  	ynh_exec_as_app ./filebrowser -c settings.json config init
 	ynh_exec_as_app ./filebrowser -c settings.json users add $admin $password --perm.admin --locale=$locale
+	ynh_exec_as_app ./filebrowser -c settings.json config set --auth.method=noauth
 popd
 
 #=================================================
@@ -50,9 +51,6 @@ popd
 ynh_exec_and_print_stderr_only_if_error cat "$data_dir 127.0.0.1(rw,sync,no_subtree_check)" >> /etc/exports
 ynh_exec_and_print_stderr_only_if_error exportfs -a
 ynh_exec_and_print_stderr_only_if_error systemctl restart nfs-kernel-server
-
-#Adding an ssh tunnel to the destination folder
-ynh_exec_and_print_stderr_only_if_error sshpass -p "$mot_de_passe" ssh-copy-id $utilisateur@$machine_distante -o StrictHostKeyChecking=no
 
 #=================================================
 # START SYSTEMD SERVICE
