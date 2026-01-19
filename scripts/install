@@ -48,7 +48,7 @@ popd
 # ADD A NFS SHARE
 #=================================================
 #Adding the datadir directory as an NFS share
-ynh_exec_and_print_stderr_only_if_error cat "$data_dir 127.0.0.1(rw,sync,no_subtree_check)" >> /etc/exports
+ynh_exec_and_print_stderr_only_if_error echo "$data_dir 127.0.0.1(rw,sync,no_subtree_check)" >> /etc/exports
 ynh_exec_and_print_stderr_only_if_error exportfs -a
 ynh_exec_and_print_stderr_only_if_error systemctl restart nfs-kernel-server
 
