@@ -22,6 +22,8 @@ ynh_script_progression "Adding system configurations related to $app..."
 
 ynh_config_add_nginx
 
+ynh_config_add --template="servicerun.sh" --destination="$install_dir/servicerun.sh"
+
 ynh_config_add_systemd
 
 yunohost service add $app --description="Web File Browser" --log="/var/log/$app/$app.log"
