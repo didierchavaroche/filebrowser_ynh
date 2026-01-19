@@ -54,7 +54,7 @@ ram.runtime = "50M"
     choices.en = "English"
     choices.fr = "Français"
 
-    [install.machine_distante]
+    [install.machine_destination]
     ask.en = "Remote IP address:"
     ask.fr = "Adresse IP distante:"
     type = "string"
